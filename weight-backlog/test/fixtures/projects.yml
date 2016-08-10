@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  project_name: MyString
+  target_date: 2016-08-10
+  target_weight: 9.99
+  is_active: false
+  start_date: 2016-08-10
+  target_date: 2016-08-10
+
+two:
+  user_id: 1
+  project_name: MyString
+  target_date: 2016-08-10
+  target_weight: 9.99
+  is_active: false
+  start_date: 2016-08-10
+  target_date: 2016-08-10

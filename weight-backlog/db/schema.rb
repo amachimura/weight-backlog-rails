@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810054059) do
+ActiveRecord::Schema.define(version: 20160810063640) do
+
+  create_table "daily_weights", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "sprint_id"
+    t.date     "date"
+    t.decimal  "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "project_name"
+    t.date     "target_date"
+    t.decimal  "target_weight"
+    t.boolean  "is_active"
+    t.date     "start_date"
+    t.decimal  "start_weight"
+    t.decimal  "end_weight"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "sprints", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.date     "target_date"
+    t.decimal  "target_weight"
+    t.boolean  "is_active"
+    t.date     "start_date"
+    t.decimal  "start_weight"
+    t.decimal  "end_weight"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
