@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'manage_projects/index'
+
+  get 'manage_projects/show'
+
+  post 'manage_projects/create' => 'manage_projects#create'
+  get 'manage_projects/create' => 'manage_projects#showcreate'
+
+  get 'manage_projects/update'
+
+  get 'manage_projects/delete'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
