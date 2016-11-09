@@ -7,7 +7,7 @@ class ManageProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params)
+    @project = Project.new(project_params)
     if @project.save
       print ('saved')
       render 'show'
@@ -18,6 +18,7 @@ class ManageProjectsController < ApplicationController
   end
 
   def showcreate
+    @project = Project.new()
     render 'create'
   end
 
@@ -26,4 +27,10 @@ class ManageProjectsController < ApplicationController
 
   def delete
   end
+
+private
+def project_params
+  params.require(:project).permit(:project_name,:target_date, :target_weight)
+end
+
 end
