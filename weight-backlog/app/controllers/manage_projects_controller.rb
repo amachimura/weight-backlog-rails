@@ -1,4 +1,7 @@
 class ManageProjectsController < ApplicationController
+require 'date'
+include SessionsHelper
+
   def index
     #read loginuser's project list
   end
@@ -7,7 +10,11 @@ class ManageProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @completeparams = project_params
+    print('\n params:')
+    print(@completeparams[:project].to_s)
+    @completeparams.permit!
+    @project = Project.new(@completeparams[:project])
     if @project.save
       print ('saved')
       render 'show'
@@ -30,7 +37,12 @@ class ManageProjectsController < ApplicationController
 
 private
 def project_params
-  params.require(:project).permit(:project_name,:target_date, :target_weight)
+  @current_user ||= User.find_by(id: session[:user_id])
+  params[:project][:user_id] = @current_user[:id]
+  params[:project][:start_weight] = @current_user[:weight]
+  params[:project][:start_date] = Date.today
+  params[:project][:is_active] = true
+  return params
 end
 
 end
