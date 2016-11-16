@@ -42,6 +42,7 @@ def project_params
   params[:project][:start_weight] = @current_user[:weight]
   params[:project][:start_date] = Date.today
   params[:project][:is_active] = true
+  params[:project][:days_of_sprint] = 7
   return params
 end
 
