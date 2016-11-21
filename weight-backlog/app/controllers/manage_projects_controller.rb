@@ -1,6 +1,7 @@
 class ManageProjectsController < ApplicationController
 require 'date'
 include SessionsHelper
+include ManageProjectsHelper
 
   def index
     #read loginuser's project list
@@ -17,6 +18,7 @@ include SessionsHelper
     @project = Project.new(@completeparams[:project])
     if @project.save
       print ('saved')
+      generateAndSaveSprints(@project)
       render 'show'
     else
       print ('save failed')
