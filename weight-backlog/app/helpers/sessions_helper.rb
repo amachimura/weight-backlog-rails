@@ -8,7 +8,7 @@ module SessionsHelper
     if @current_user.nil?
       return User.new(name:'guest')
     else
-      @current_user
+      return @current_user
     end
   end
 end

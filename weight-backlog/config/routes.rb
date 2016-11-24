@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'daily_weight/show'
+
+  post 'daily_weight/record'
+
   get 'manage_projects/index'
 
   get 'manage_projects/show'
