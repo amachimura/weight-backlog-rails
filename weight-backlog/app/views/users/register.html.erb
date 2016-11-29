@@ -1,3 +1,23 @@
-<h1>Users#register</h1>
-<p>Find me in app/views/users/register.html.erb</p>
-<%= @user.name %>, <%= @user.email %>
+<% provide(:title, "Signup") %>
+<h1>Register</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(:users, url: 'register') do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :weight %>
+        <%= f.number_field :weight, step: 0.1, class: 'form-control'%>
+
+        <%= f.submit "Signup", class: "btn btn-primary" %>
+        <% end %>
+        <p>signed up? <%= link_to "Login!", 'login' %></p>
+    </div>
+</div>

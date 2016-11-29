@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   root 'static_pages#home'
+
+  get 'register' => 'users#registerInput'
   post 'register' => 'users#register'
   resources :users
 
