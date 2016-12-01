@@ -1,12 +1,9 @@
-<h1>DailyWeight#show</h1>
-<p>Find me in app/views/daily_weight/show.html.erb</p>
+<h1>今日の体重</h1>
+<p>今日の体重を記録しましょう</p>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(@daily_weight, url: 'record') do |f| %>
-        <div>
-            <%= f.label '今日の体重を記録してください' %>
-        </div>
-        <div>
+        <div class="row">
             <%= f.label '日付' %>
             <% time = @daily_weight.date %>
             <%= time.strftime('%Y年%m月%d日') %>
@@ -16,11 +13,11 @@
           <%= f.hidden_field :sprint_id, value: @daily_weight.sprint_id %>
           <%= f.hidden_field :user_id, value: @daily_weight.user_id %>
         </div>
-        <div>
+        <div class="row">
             <%= f.label '体重' %>
             <%= f.number_field :weight, step: 0.1 %>
         </div>
-        <div>
+        <div class="row">
             <%= f.submit "記録する", class: "btn btn-primary" %>
         </div>
         <% end %>

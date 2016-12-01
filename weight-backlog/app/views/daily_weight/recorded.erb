@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>体重を記録しました</h2>
+      <div class="row">
+        <label>スプリント期限：</label>
+        <%= @sprint.target_date %>
+      </div>
+      <div class="row">
+        <label>現在の体重：</label>
+        <%= @daily_weight.weight %>
+        <label>kg</label>
+      </div>
+      <div class="row">
+        <% remaining = @daily_weight.weight - @sprint.target_weight %>
+        <label>あと</label>
+        <%= remaining %><label>kg</label>
+      </div>
+    </div>
+</div>

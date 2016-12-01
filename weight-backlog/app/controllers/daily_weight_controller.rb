@@ -13,7 +13,8 @@ class DailyWeightController < ApplicationController
     params.permit!
     @daily_weight = DailyWeight.new(daily_weight_params)
     if @daily_weight.save
-      render('record')
+      @sprint = findCurrentSprint(current_user.id)
+      render('recorded')
     else
       render('show')
     end
