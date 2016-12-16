@@ -3,14 +3,20 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(:session, url: 'login') do |f| %>
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+        <div class="row">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="row">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="row">
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-
-        <%= f.submit "Login", class: "btn btn-primary" %>
+            <%= f.submit "Login", class: "btn btn-primary" %>
+        </div>
         <% end %>
-        <p>New user? <%= link_to "Sign up now!", 'signup' %></p>
+        <p>New user?
+            <%= link_to "Sign up now!", 'signup' %></p>
     </div>
 </div>

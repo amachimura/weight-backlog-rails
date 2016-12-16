@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 20161115052231) do
     t.string   "name"
     t.string   "email"
     t.float    "weight"
+    t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "password_digest"
   end
 
 end

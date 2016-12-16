@@ -41,6 +41,7 @@ require 'date'
   print('★saved ')
   print(numberOfSprint)
   print(' sprints★')
+  return numberOfSprint
  end
 
  def createSprint(sprintParams)
@@ -49,7 +50,7 @@ require 'date'
  end
 
  def makeTargetPerSprint(remainWeight, numberOfSprint)
-   return remainWeight.fdiv(numberOfSprint).round
+   return remainWeight.fdiv(numberOfSprint).round(1)
  end
 
 

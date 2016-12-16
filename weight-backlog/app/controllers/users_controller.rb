@@ -3,12 +3,18 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
   end
 
+  def registerInput
+    render 'register'
+  end
+
   def register
-    @user = User.new(params)
+    params.permit!
+    @user = User.new(params[:users])
     if @user.save
+      log_in @user
       redirect_to @user
     else
-    render 'new'
+    render 'register'
     end
   end
 end

@@ -1,0 +1,61 @@
+<div class="row">
+    <h1>project is created and sprints are generated</h1>
+    <p>rush on your short-run target.</p>
+    <div class="col-md-6 col-md-offset-3">
+        <h2>created project:</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label>slogan：</label>
+                <%= @project.project_name %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>current weight：</label>
+                <%= current_user.weight %>
+                <label>kg</label>
+            </div>
+            <div class="col-md-6">
+                <label>target weight:</label>
+                <%= @project.target_weight %>
+                <label>kg</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <% remaining = current_user.weight - @project.target_weight %>
+                <label>to lose:</label>
+                <%= remaining.round(1) %>
+                <label>kg</label>
+            </div>
+        </div>
+        <h2>generated sprints:</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <%= @numberOfSprint %>
+                <label>&nbsp;sprints are created</label>
+            </div>
+        </div>
+        <h3>Next Sprint</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Target Date:</label><%= @currentSprint.target_date %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Target Weight:</label>
+                <%= @currentSprint.target_weight %>
+                <label>kg</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <% remaining_sp = current_user.weight - @currentSprint.target_weight %>
+                <label>to lose:</label>
+                <%= remaining_sp.round(1) %>
+                <label>kg</label>
+            </div>
+        </div>
+    </div>
+</div>
